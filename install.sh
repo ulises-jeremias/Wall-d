@@ -1,14 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-OUTDIR="$HOME/.local/bin/"
-[ -e "$OUTDIR" ] || mkdir -p $OUTDIR
-state1=$(ls -1 "$OUTDIR" | grep -E "wall-d")
-CurrentDIR=$(pwd)
-PCurrentDir=$(echo "$CurrentDIR")
+ROOT=$(dirname "$0")
+OUTDIR="$HOME/.local/bin"
 
-[ -n "$state1" ] && rm "$OUTDIR"wall-d
+[ -e "${OUTDIR}" ] || mkdir -p "${OUTDIR}"
 
-cp "$PCurrentDir"/wall-d "$OUTDIR"
+state1=$(ls -1 "${OUTDIR}" | grep -E "wall-d")
 
+[ -n "$state1" ] && rm "${OUTDIR}"/wall-d
 
-
+cp "${ROOT}"/wall-d "{$OUTDIR}"
